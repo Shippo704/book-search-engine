@@ -11,7 +11,7 @@ import {
 // import the queries and mutations for gql and apollo
 import {useQuery, useMutation} from '@apollo/client';
 import {QUERY_ME} from '../utils/queries';
-import {DELETE_BOOK} from '..utils/mutations';
+import {DELETE_BOOK} from '../utils/mutations';
 
 // import authentication
 import Auth from '../utils/auth';

@@ -3,18 +3,21 @@ import React, { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 
 // import queries/mutations
-import useMutation from '@apollo/client';
+import {useMutation} from '@apollo/client';
 import {LOGIN_USER} from '../utils/mutations';
 
 // import auth
 import Auth from '../utils/auth';
 
-const LoginForm = (props) => {
+const LoginForm = () => {
   // set initial form state
   const [userFormData, setUserFormData] = useState({ email: '', password: '' });
-  
+  // use state for validation and alerts
+  const [validated] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
+
   // use the LOGIN USER mutation
-  const [login, { error, data }] = useMutation(LOGIN_USER);
+  const [login, {error}] = useMutation(LOGIN_USER);
 
   // update state based on form input changes
   const handleInputChange = (event) => {

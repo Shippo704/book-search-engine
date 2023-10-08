@@ -9,7 +9,7 @@ import Auth from '../utils/auth';
 
 const SignupForm = () => {
   // set initial form state
-  const [formState, setFormState] = useState({
+  const [userFormData, setUserFormData] = useState({
     username: '',
     email: '',
     password: '',
@@ -43,7 +43,7 @@ const SignupForm = () => {
     try {
       // add the new user
       const {data} = await addUser({
-        variables: {...formState}
+        variables: {...userFormData}
       });
       
       // add auth token to the new user data
