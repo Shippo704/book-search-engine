@@ -43,8 +43,11 @@ const typeDefs = gql `
         addUser(username: String!, email: String!, password: String!): Auth
         login(email: String!, password: String!): Auth
         saveBook: (bookData: BookInput!): User
-        removeBook(bookId: ID!): User
+        deleteBook(bookId: ID!): User
     }
 
 
 `
+
+// export typeDefs to use in resolvers
+module.exports = typeDefs;
