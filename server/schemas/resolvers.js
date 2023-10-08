@@ -10,6 +10,7 @@ const resolvers = {
         me: async (parent, args, context) => {
             if (context.user) {
                 return User.findOne({_id: context.user._id})
+                    .select("-__v -password")
                     .populate('books');
             }
             // throw error if no context.user (not logged in)

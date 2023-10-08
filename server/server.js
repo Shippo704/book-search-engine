@@ -26,11 +26,11 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client/build/index.html'))
+  res.sendFile(path.join(__dirname, '../client/'))
 });
 
 // Create a new instance of an Apollo server with the GraphQL schema
-const startApolloServer = async (typeDefs, resolvers) => {
+const startApolloServer = async () => {
   await server.start();
   server.applyMiddleware({ app });
   
@@ -43,4 +43,4 @@ const startApolloServer = async (typeDefs, resolvers) => {
   };
 
 // start the server
-startApolloServer(typeDefs, resolvers);
+startApolloServer();
